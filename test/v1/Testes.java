@@ -38,7 +38,7 @@ public class Testes {
 	@Test
 	public void testeProblema() {
 		
-		Pessoa p1 = new Pessoa("Fulano", false, false);
+		Pessoa p1 = new Pessoa("Fulano", false, true);
 		Pessoa p2 = new Pessoa("Ciclana", true, false);
 		Pessoa p3 = new Pessoa("Beltrana", false, false);
 		
@@ -48,23 +48,23 @@ public class Testes {
 		f.addPessoa(p2);
 		f.addPessoa(p3);
 		
-		Pessoa proximo = f.proximoFila();
+		Pessoa proximo = f.proximoFilaTodos();
 		
-		Assert.assertEquals(proximo.getNome(), "Ciclana");
-		
-		f.removePessoa(proximo);
-		proximo = f.proximoFila();
-			
 		Assert.assertEquals(proximo.getNome(), "Fulano");
 		
 		f.removePessoa(proximo);
-		proximo = f.proximoFila();
+		proximo = f.proximoFilaTodos();
+			
+		Assert.assertEquals(proximo.getNome(), "Ciclana");
+		
+		f.removePessoa(proximo);
+		proximo = f.proximoFilaTodos();
 		
 		Assert.assertEquals(proximo.getNome(), "Beltrana");
 		
 		f.removePessoa(proximo);
 		// testando o método alterado de próximo fila
-		proximo = f.proximoFila();
+		proximo = f.proximoFilaTodos();
 	}
 
 }
